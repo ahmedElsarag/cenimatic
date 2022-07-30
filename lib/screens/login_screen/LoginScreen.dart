@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:flutter_gen/gen_l10n/app_localization.dart';
+
+import '../../generated/l10n.dart';
+
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
 
@@ -28,7 +30,7 @@ class _LoginScreenState extends State<LoginScreen> {
             children: [
               SvgPicture.asset('assets/icons/splash_icon.svg',height: 6.h),
               SizedBox(height: 3.h,),
-              Text(AppLocalizations?.of(context)?.appTitle??'',
+              Text(S.of(context).welcomeToCinematec,
               style: TextStyle(color: Colors.white,
                   fontSize: 18.sp),
               ),
@@ -95,7 +97,13 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ),
                     ),
-                    ElevatedButton(onPressed: (){},
+                    ElevatedButton(onPressed: (){
+                      print('done');
+                      setState(() {
+                        S.load(Locale('ar',''));
+                      });
+
+                    },
                         style: ElevatedButton.styleFrom(
                           primary: AppTheme.primaryColor,
                           shape: RoundedRectangleBorder(
