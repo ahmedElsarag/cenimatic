@@ -1,6 +1,7 @@
 import 'package:cenimatic/screens/splash_screen/splash_screen.dart';
 import 'package:cenimatic/utils/app_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localization.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 void main() {
@@ -14,10 +15,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ResponsiveSizer(
-        builder: (BuildContext, Orientation, ScreenType) => MaterialApp(
+        builder: (BuildContext, Orientation, ScreenType) =>
+            MaterialApp(
+
+              localizationsDelegates: AppLocalizations.localizationsDelegates,
+              supportedLocales: AppLocalizations.supportedLocales,
+
+              debugShowCheckedModeBanner: false,
               title: 'Flutter Demo',
               theme: AppTheme.myLightTheme,
-              debugShowCheckedModeBanner: false,
               home: SplashScreen(),
             ));
   }

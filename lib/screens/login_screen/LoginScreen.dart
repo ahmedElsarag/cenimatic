@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localization.dart';
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
 
@@ -28,7 +28,7 @@ class _LoginScreenState extends State<LoginScreen> {
             children: [
               SvgPicture.asset('assets/icons/splash_icon.svg',height: 6.h),
               SizedBox(height: 3.h,),
-              Text('Welcome to Cinematec,',
+              Text(AppLocalizations?.of(context)?.appTitle??'',
               style: TextStyle(color: Colors.white,
                   fontSize: 18.sp),
               ),
